@@ -1,21 +1,27 @@
 <script lang="ts">
-  import { inview } from 'svelte-inview';
-  import type { ObserverEventDetails, Options } from 'svelte-inview';
-  import { fly } from 'svelte/transition';
-  import { quintOut } from 'svelte/easing';
+  import { inview } from "svelte-inview";
+  import type { Options } from "svelte-inview";
+  import { typewriter } from "../../utils/typewriter";
 
   let isInView: boolean;
+
   const options: Options = {
     unobserveOnEnter: false,
   };
-
-  const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
-    isInView = detail.inView;
-    console.log("here! ", isInView);
-  };
 </script>
-<div use:inview={options} on:inview_change={handleChange}>
+
+<div
+  use:inview={options}
+  on:inview_change={({ detail }) => {
+    isInView = detail.inView;
+  }}
+>
   {#if isInView}
-    <p class="text-5xl" transition:fly={{ delay: 250, duration: 300, x: 100, y: 500, opacity: 0.5, easing: quintOut }}>Hi there!</p>
+    <p
+      class="text-5xl animate-fade-up animate-duration-[2000ms] animate-delay-100 animate-once"
+      transition:typewriter
+    >
+      Hello there!
+    </p>
   {/if}
 </div>

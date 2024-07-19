@@ -19,7 +19,8 @@ const config = {
 	plugins: [
     	skeleton({
     	  themes: { preset: [ "rocket" ] }
-    	})
+    	}),
+		require('tailwindcss-animated')
 	]
 } satisfies Config;			
 

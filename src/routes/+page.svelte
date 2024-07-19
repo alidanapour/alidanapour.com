@@ -53,9 +53,9 @@
 
 <div class="flex flex-row h-screen bg-surface-100-800-token hero-gradient">
   <div>
-    <AppRail width="w-16" border="border-r border-surface-700">
+    <AppRail width="w-fit" border="border-r border-surface-700">
       <svelte:fragment slot="lead">
-        <AppRailAnchor href="/" >
+        <AppRailAnchor >
           <div class="flex justify-center">
             <Terminal strokeWidth={2.5} size={32} class="stroke-primary-500" />
           </div>
